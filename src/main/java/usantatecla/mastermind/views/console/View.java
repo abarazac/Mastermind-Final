@@ -2,17 +2,20 @@ package usantatecla.mastermind.views;
 
 import usantatecla.mastermind.models.Game;
 
+import usantatecla.mastermind.StartController;
+import usantatecla.mastermind.ResumeController;
+import usantatecla.mastermind.ProposeCombinationController;
+
 public abstract class View extends usantatecla.mastermind.views.View {
 
 	private StartView startView;
 	private ProposalView proposalView;
 	private ResumeView resumeView;
 
-	public View(Game game) {
-		super(game);
-		this.startView = new StartView(this.game);
-		this.playView = new PlayView(this.game);
-		this.resumeView = new ResumeView(this.game);
+	public View(StartController startController, ResumeController resumeController, ProposeCombinationController proposeCombinationController) {
+		this.startView = new StartView(startController);
+		this.playView = new ResumeView(resumeController);
+		this.resumeView = new ProposedCombinationView(proposeCombinationController);
 	}
 
 	public void interact() {

@@ -1,8 +1,8 @@
-package usantatecla.tictactoe.views.graphics;
+package usantatecla.mastermind.views.graphics;
 
 import javax.swing.JOptionPane;
 
-import usantatecla.tictactoe.views.Message;
+import usantatecla.Mastermind.views.MessageView;
 
 class ResumeView {
 
