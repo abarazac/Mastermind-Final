@@ -2,7 +2,10 @@ package usantatecla.mastermind.views;
 
 import usantatecla.mastermind.models.Game;
 
-import usantatecla.mastermind.controllers.Logic;
+import usantatecla.mastermind.controllers.Controller;
+import usantatecla.mastermind.controllers.ProposeCombinationController;
+import usantatecla.mastermind.controllers.ResumeController;
+import usantatecla.mastermind.controllers.StartController;
 
 public abstract class View extends usantatecla.mastermind.views.View {
 
@@ -10,21 +13,25 @@ public abstract class View extends usantatecla.mastermind.views.View {
 	private ProposalView proposalView;
 	private ResumeView resumeView;
 
-	public View(Logic logic) {
-		this.startView = new StartView(logic);
-		this.playView = new ResumeView(logic);
-		this.resumeView = new ProposedCombinationView(logic);
+	public View() {
+		this.startView = new StartView();
+		this.playView = new ResumeView();
+		this.resumeView = new ProposedCombinationView();
 	}
 
-	public void interact() {
+	public void interact(Controller controller) {
 		boolean newGame;
 		do {
-			this.startView.interact();
+			if(controller instanceof StartController){
+				this.startView.interact((StartController) controller); 
+			}
 			boolean finished;
 			do {
-				finished = this.proposalView.interact();
+				if(controller instanceof ProposeCombinationController) {
+					finished = this.proposalView.interact((ProposeCombinationController) controller);
+				}
 			} while (!finished);
-			newGame = this.resumeView.interact();
+			newGame = this.resumeView.interact((ResumeController) controller);
 		} while (newGame);
 	}
 

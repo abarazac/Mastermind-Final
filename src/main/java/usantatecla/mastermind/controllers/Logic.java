@@ -2,24 +2,31 @@ package usantatecla.mastermind.controllers;
 
 import usantatecla.mastermind.models.Game;
 
-import usantatecla.mastermind.controllers.ProposeCombinationController;
-import usantatecla.mastermind.controllers.ResumeController;
-import usantatecla.mastermind.controllers.StartController;
+import java.util.HashMap;
+import java.util.Map;
+
+import usantatecla.mastermind.models.State;
+import usantatecla.mastermind.models.GameState;
 
 
 public class Logic {
 
     private Game game;
-    
-    private StartController StartController;
-    private ResumeController ResumeController;
-    private ProposeCombinationController ProposeCombinationController;
+    private State state;
+    private Map<StateValue, Controller> controllers;
 
     public Logic() {
+        this.state = new State();
         this.game = new Game();
-        this.StartController = new StartController(this.game);
-        this.ProposeCombinationController = new ProposeCombinationController(this.game);
-        this.ResumeController = new ResumeController(this.game);
+        this.controllers = new HashMap<StateValue, Controller>();
+        this.controllers.put(StateValue.INITIAL, new StartController(this.game, this.state));
+        this.controllers.put(StateValue.IN_GAME, new ProposeCombinationController(this.game, this.state));
+        this.controllers.put(StateValue.RESUME, new ResumeController(this.game, this.state));
+        this.controllers.put(StateValue.EXIT, null);
+    }
+
+    public Controller getController() {
+        return this.controllers.get(this.state.getValueState());
     }
 
 }
