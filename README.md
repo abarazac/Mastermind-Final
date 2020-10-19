@@ -1,4 +1,5 @@
-<h1 align="center">Master Mind. Solución Final basada en solución 2.1. Sin funcionalidad. Cada commit corresponde a la solución siguiente </h1>
+<h1 align="center">Master Mind. Solución Final basada en solución 2.1. Sin funcionalidad. Cada commit corresponde a la solución siguiente. </h1>
+<h2> Sin funcionalidad. Cada commit corresponde a la solución siguiente. </h2>
 <p>
   <a href="/docs" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
