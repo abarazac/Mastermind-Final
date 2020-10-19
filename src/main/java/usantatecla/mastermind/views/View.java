@@ -2,21 +2,12 @@ package usantatecla.mastermind.views;
 
 import usantatecla.mastermind.models.Game;
 
-public class View {
+public abstract class View {
 
 	protected Game game;
 
-	private StartView startView;
-
-	private ProposalView proposalView;
-
-	private ResumeView resumeView;
-
 	public View(Game game) {
 		this.game = game;
-		this.startView = new StartView();
-		this.proposalView = new ProposalView(this.game);
-		this.resumeView = new ResumeView(this.game);
 	}
 
 	public void interact() {
@@ -30,5 +21,10 @@ public class View {
 			newGame = this.resumeView.interact();
 		} while (newGame);
 	}
+
+	protected abstract void start();
+	protected abstract void play();
+	protected abstract void isNewGame();
+	
 
 }

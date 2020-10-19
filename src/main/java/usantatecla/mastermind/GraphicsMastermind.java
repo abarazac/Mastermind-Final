@@ -1,7 +1,7 @@
 package usantatecla.mastermind;
 
 import usantatecla.mastermind.models.Game;
-import usantatecla.mastermind.views.View;
+import usantatecla.mastermind.views.graphics.View;
 
 public class Mastermind {
 
@@ -9,7 +9,7 @@ public class Mastermind {
 	
 	private View view;
 
-	private Mastermind() {
+	private GraphicsMastermind() {
 		this.game = new Game();
 		this.view = new View(this.game);
 	}
@@ -19,7 +19,7 @@ public class Mastermind {
 	}
 	
 	public static void main(String[] args) {
-		new Mastermind().play();
+		new GraphicsMastermind().play();
 	}	
 
 }
