@@ -20,34 +20,21 @@ public abstract class View extends usantatecla.mastermind.views.View {
 	}
 
 	public void interact(Controller controller) {
-		boolean newGame;
-		do {
-			if(controller instanceof StartController){
-				this.startView.interact((StartController) controller); 
-			}
-			boolean finished;
-			do {
-				if(controller instanceof ProposeCombinationController) {
-					finished = this.proposalView.interact((ProposeCombinationController) controller);
-				}
-			} while (!finished);
-			newGame = this.resumeView.interact((ResumeController) controller);
-		} while (newGame);
+		controller.accept(this);
 	}
 
 	@Override
-	protected void start(){
-		this.startView.interact();
+	public void visit(StartController startController) {
+		this.startView.interact(startController);
 	}
 
 	@Override
-	protected void play(){
-		this.playView.interact();
-	}
+	public void visit(ProposeCombinationController proposeCombinationController) {
+		this.ProposedCombinationView.interact(proposeCombinationController);	}
 
 	@Override
-	protected boolean isNewGame(){
-		return this.resumeView.interact();
+	public boolean visit(ResumeController resumeController) {
+		return this.resumeView.interact(resumeController);
 	}
 
 }
