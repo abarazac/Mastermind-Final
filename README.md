@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to Master Mind. Solución 2.1. **documentView** 👋</h1>
+<h1 align="center">Master Mind. Solución Final basada en solución 2.1. Sin funcionalidad. Cada commit corresponde a la solución siguiente </h1>
 <p>
   <a href="/docs" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
@@ -7,8 +7,6 @@
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
 </p>
-
-> Master Mind. Solución Modelo de Dominio
 
 ## Install
 
