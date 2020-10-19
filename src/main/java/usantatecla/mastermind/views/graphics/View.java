@@ -1,5 +1,6 @@
 package usantatecla.mastermind.views;
 
+import usantatecla.mastermind.controllers.Logic;
 import usantatecla.mastermind.models.Game;
 
 public abstract class View extends usantatecla.mastermind.views.View {
@@ -33,8 +34,6 @@ public abstract class View extends usantatecla.mastermind.views.View {
 
 	@Override
 	protected void play() {
-		this.startView.setVisible(false);
-		this.playView.interact();
 	}
 
 	@Override
